@@ -1,0 +1,10 @@
+FROM jenkins/jenkins:lts
+
+USER root
+
+# Install Python and Docker CLI
+RUN apt-get update && \
+    apt-get install -y python3 python3-pip docker.io && \
+    rm -rf /var/lib/apt/lists/*
+
+USER jenkins

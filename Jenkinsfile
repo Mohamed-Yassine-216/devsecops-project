@@ -12,19 +12,19 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                bat 'python -m pip install -r requirements.txt'
+                sh 'python3 -m pip install -r requirements.txt'
             }
         }
 
         stage('Run Tests') {
             steps {
-                bat 'pytest'
+                sh 'python3 -m pytest'
             }
         }
 
         stage('Docker Build') {
             steps {
-                bat 'docker build -t devsecops-demo:latest .'
+                sh 'docker build -t devsecops-demo:latest .'
             }
         }
     }
